@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "tarea": "Terminar front",
+    "descripcion": "Terminar Labs Hooks 2 y forms"
+  },
+  {
+    "id": 2,
+    "tarea": "Acabar curso de conducción",
+    "descripcion": "Asistir y pasar clases en menos de dos meses, recibir licencia"
+  },
+  {
+    "id": 3,
+    "tarea": "Renovar pasaporte",
+    "descripcion": "Agendar cita, averiguar requisitos clave"
+  },
+  {
+    "id": 4,
+    "tarea": "Terminar módulo de comunicaciones",
+    "descripcion": "Rendir laboralmente en el módulo de comunicaciones"
+  },
+  {
+    "id": 5,
+    "tarea": "escuchar pdscast",
+    "descripcion": "escuchar podcast "
+  },
+  {
+    "id": 7,
+    "tarea": "leer podcast de maestrias",
+    "descripcion": "investirgar un pais de posible maestria"
+  }
+]
