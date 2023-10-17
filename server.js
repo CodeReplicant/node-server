@@ -1,33 +1,41 @@
-const http = require('http');
+const express = require('express');
 const fs = require('fs');
+const app = express();
+const port = 3001;
+app.use(express.json());
+const editroute=require("./Editrouter.js");
 
 
-const port = 3000;
-const host = '127.0.0.1';
 
-const server = http.createServer((req, res) => {
+app.use(editroute);
 
 
-res.writeHead(200, { 'Content-Type':  'application/json' });
-  
-  // Lea tareas del JSON tasks.json
+
+
+
+
+app.get('/', (req, res) => {
+
+  // Read tasks from the 'task.json' file
   fs.readFile('task.json', (err, data) => {
     if (err) {
       console.error(err);
-      res.statusCode = 500;
-      res.end(JSON.stringify({ error: 'Internal Server Error' }));
+      res.status(500).json({ error: 'Internal Server Error' });
     } else {
-        res.write(data);
-      res.end();
+      const tasks = JSON.parse(data);
+      const formattedData = JSON.stringify(tasks, null, 2); // Adds spacing and indentation
+
+      res.status(200).set('Content-Type', 'application/json').send(formattedData);
     }
+  });
 
-  });//finaliza lectura
-
-
-});//finaliza creacion de server
-
-server.listen(port, host,  () => {
-  console.log(`Server is running at http://localhost:${port}`);
 });
 
-module.exports = server;
+
+
+
+
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
